@@ -1,0 +1,5 @@
+@"
+.env
+node_modules/
+server/store.db
+"@ | Set-Content .gitignore

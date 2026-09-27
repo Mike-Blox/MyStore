@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - My Store</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            MY STORE
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="products.html">Products</a>
+
+            <a href="cart.html">Cart</a>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <h1>Checkout</h1>
+
+
+        <div class="checkout-container">
+
+
+            <div class="checkout-section">
+
+                <h2>Contact Information</h2>
+
+                <input
+                    type="text"
+                    id="customer-name"
+                    placeholder="Full Name"
+                >
+
+                <input
+                    type="email"
+                    id="customer-email"
+                    placeholder="Email Address"
+                >
+
+            </div>
+
+
+            <div class="checkout-section">
+
+                <h2>Shipping Address</h2>
+
+                <input
+                    type="text"
+                    id="address"
+                    placeholder="Street Address"
+                >
+
+                <input
+                    type="text"
+                    id="city"
+                    placeholder="City"
+                >
+
+                <input
+                    type="text"
+                    id="state"
+                    placeholder="State"
+                >
+
+                <input
+                    type="text"
+                    id="zip"
+                    placeholder="ZIP Code"
+                >
+
+            </div>
+
+
+            <div class="checkout-section">
+
+                <h2>Your Order</h2>
+
+                <div id="checkout-items"></div>
+
+                <h2>
+                    Total: $<span id="checkout-total">0.00</span>
+                </h2>
+
+            </div>
+
+
+            <div class="checkout-section">
+
+                <h2>Payment Method</h2>
+
+                <button onclick="selectPayment('zelle')">
+                    💜 Zelle
+                </button>
+
+                <p id="payment-message"></p>
+                <div id="zelle-instructions" style="display: none;">
+
+    <h3>Pay with Zelle</h3>
+
+    <p>
+        Send your payment to our Zelle business phone number:
+    </p>
+
+    <p>
+        <strong>929-422-5005</strong>
+    </p>
+
+    <p>
+        After sending the payment, keep your confirmation
+        for your records.
+    </p>
+
+    <p>
+        Your order will remain pending until we verify
+        the Zelle payment.
+    </p>
+
+</div>
+
+            </div>
+
+
+            <button
+                class="place-order"
+                onclick="placeOrder()"
+            >
+                Place Order
+            </button>
+
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

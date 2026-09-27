@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Order Confirmed - My Store</title>
+
+<link rel="stylesheet"
+    href="style.css">
+```
+
+</head>
+
+<body>
+
+```
+<nav>
+
+    <div class="logo">
+        MY STORE
+    </div>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="cart.html">
+            Cart
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main>
+
+    <div class="checkout-container">
+
+        <div class="checkout-section">
+
+            <h1>
+                Order Confirmed! 🎉
+            </h1>
+
+            <h2>
+                Order #<span id="order-number"></span>
+            </h2>
+
+            <p id="payment-status"></p>
+
+            <div id="zelle-confirmation"
+                style="display: none;">
+
+                <h3>
+                    Zelle Payment
+                </h3>
+
+                <p>
+                    Please send your payment to the
+                    Zelle number shown on the checkout page.
+                </p>
+
+                <p>
+                    Your order will remain pending until
+                    your Zelle payment is verified.
+                </p>
+
+            </div>
+
+            <br>
+
+            <button onclick="window.location.href='index.html'">
+                Return to Store
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+    const orderId =
+        localStorage.getItem("lastOrderId");
+
+    const paymentMethod =
+        localStorage.getItem("lastPaymentMethod");
+
+
+    document.getElementById(
+        "order-number"
+    ).textContent =
+        orderId || "Unknown";
+
+
+    if (paymentMethod === "zelle") {
+
+        document.getElementById(
+            "payment-status"
+        ).textContent =
+            "Payment Method: Zelle — Pending Verification";
+
+
+        document.getElementById(
+            "zelle-confirmation"
+        ).style.display =
+            "block";
+
+    } else {
+
+        document.getElementById(
+            "payment-status"
+        ).textContent =
+            "Payment Method: Card / Other";
+
+    }
+
+</script>
+```
+
+</body>
+
+</html>

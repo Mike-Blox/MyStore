@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - Orders</title>
+
+    <link rel="stylesheet"
+        href="style.css">
+
+    <style>
+
+        .admin-order {
+
+            width: 800px;
+            max-width: 90%;
+
+            margin: 25px auto;
+
+            padding: 25px;
+
+            background: #1c1c1c;
+
+            border-radius: 12px;
+
+            text-align: left;
+
+        }
+
+
+        .admin-order h2 {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .admin-order p {
+
+            font-size: 16px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .status-section {
+
+            margin-top: 25px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #444;
+
+        }
+
+
+        .status-section select {
+
+            padding: 12px;
+
+            background: #333;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            font-size: 16px;
+
+        }
+
+
+        .status-section button {
+
+            margin-left: 10px;
+
+            padding: 12px 20px;
+
+        }
+
+
+        .status-message {
+
+            color: #4ade80;
+
+            margin-top: 10px;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <nav>
+
+        <div class="logo">
+
+            MY STORE ADMIN
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+
+                Store
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <h1>
+
+            Orders
+
+        </h1>
+
+
+        <div id="orders">
+
+            Loading orders...
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+
+        async function loadOrders() {
+
+            const ordersContainer =
+                document.getElementById("orders");
+
+
+            try {
+
+                const response =
+                    await fetch("/api/orders");
+
+
+                const data =
+                    await response.json();
+
+
+                if (!data.success) {
+
+                    ordersContainer.textContent =
+                        "Could not load orders.";
+
+                    return;
+
+                }
+
+
+                if (data.orders.length === 0) {
+
+                    ordersContainer.textContent =
+                        "No orders yet.";
+
+                    return;
+
+                }
+
+
+                ordersContainer.innerHTML = "";
+
+
+                data.orders.forEach(order => {
+
+                    const orderDiv =
+                        document.createElement("div");
+
+
+                    orderDiv.className =
+                        "admin-order";
+
+
+                    let items = [];
+
+
+                    try {
+
+                        items =
+                            JSON.parse(order.items);
+
+                    }
+
+                    catch {
+
+                        items = [];
+
+                    }
+
+
+                    let itemsHTML = "";
+
+
+                    items.forEach(item => {
+
+                        itemsHTML += `
+
+                            <p>
+
+                                ${item.name}
+
+                                -
+
+                                $${Number(item.price).toFixed(2)}
+
+                            </p>
+
+                        `;
+
+                    });
+
+
+                    orderDiv.innerHTML = `
+
+                        <h2>
+                            Order #${order.id}
+                        </h2>
+
+
+                        <p>
+
+                            <strong>
+                                Customer:
+                            </strong>
+
+                            ${order.customer_name}
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Email:
+                            </strong>
+
+                            ${order.customer_email}
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Address:
+                            </strong>
+
+                            ${order.address},
+
+                            ${order.city},
+
+                            ${order.state}
+
+                            ${order.zip}
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Payment:
+                            </strong>
+
+                            ${order.payment_method}
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Current Status:
+                            </strong>
+
+                            <span id="status-${order.id}">
+
+                                ${order.status}
+
+                            </span>
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>
+                                Date:
+                            </strong>
+
+                            ${order.created_at}
+
+                        </p>
+
+
+                        <h3>
+
+                            Items
+
+                        </h3>
+
+
+                        ${itemsHTML}
+
+
+                        <div class="status-section">
+
+                            <strong>
+                                Change Order Status:
+                            </strong>
+
+
+                            <select id="select-${order.id}">
+
+                                <option value="pending"
+                                    ${order.status === "pending" ? "selected" : ""}>
+
+                                    Pending
+
+                                </option>
+
+
+                                <option value="paid"
+                                    ${order.status === "paid" ? "selected" : ""}>
+
+                                    Paid
+
+                                </option>
+
+
+                                <option value="shipped"
+                                    ${order.status === "shipped" ? "selected" : ""}>
+
+                                    Shipped
+
+                                </option>
+
+
+                                <option value="completed"
+                                    ${order.status === "completed" ? "selected" : ""}>
+
+                                    Completed
+
+                                </option>
+
+
+                                <option value="cancelled"
+                                    ${order.status === "cancelled" ? "selected" : ""}>
+
+                                    Cancelled
+
+                                </option>
+
+                            </select>
+
+
+                            <button
+                                onclick="updateStatus(${order.id})">
+
+                                Update Status
+
+                            </button>
+
+
+                            <div
+                                class="status-message"
+                                id="message-${order.id}">
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+
+                    ordersContainer.appendChild(
+                        orderDiv
+                    );
+
+                });
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+
+                ordersContainer.textContent =
+                    "Could not connect to server.";
+
+            }
+
+        }
+
+
+        async function updateStatus(orderId) {
+
+            const select =
+                document.getElementById(
+                    `select-${orderId}`
+                );
+
+
+            const message =
+                document.getElementById(
+                    `message-${orderId}`
+                );
+
+
+            const newStatus =
+                select.value;
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `/api/orders/${orderId}/status`,
+                        {
+
+                            method: "PATCH",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body: JSON.stringify({
+
+                                status: newStatus
+
+                            })
+
+                        }
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (data.success) {
+
+                    message.textContent =
+                        "Status updated!";
+
+                    document.getElementById(
+                        `status-${orderId}`
+                    ).textContent =
+                        newStatus;
+
+                }
+
+                else {
+
+                    message.textContent =
+                        "Could not update status.";
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(error);
+
+                message.textContent =
+                    "Server connection failed.";
+
+            }
+
+        }
+
+
+        loadOrders();
+
+    </script>
+
+
+</body>
+
+</html>
