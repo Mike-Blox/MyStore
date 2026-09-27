@@ -78,6 +78,12 @@ app.get("/admin.html", adminAuth, (req, res) => {
 
 });
 
+// Block public access to the server folder
+app.use("/server", (req, res) => {
+    res.status(404).send("Not found");
+});
+
+// Serve the website files
 app.use(
     express.static(
         path.join(__dirname, "..")
