@@ -8,8 +8,8 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 function addToCart() {
 
     const product = {
-        name: "Test Product",
-        price: 19.99
+        name: "Rust Semi Automatic Rifle",
+        price: 34.99
     };
 
     cart.push(product);
