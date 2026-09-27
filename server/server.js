@@ -17,8 +17,8 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
 const products = {
 
-    "Test Product": {
-        price: 19.99
+    "Rust Semi Automatic Rifle": {
+        price: 34.99
     }
 
 };
