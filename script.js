@@ -37,6 +37,22 @@ function loadCart() {
 
     let total = 0;
 
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <h2>Your cart is empty</h2>
+                <p>Add a product to your cart to get started.</p>
+                <a href="products.html" class="shop-button">
+                    Shop Now
+                </a>
+            </div>
+        `;
+
+        cartTotal.textContent = "0.00";
+        return;
+    }
+
     cart.forEach((product, index) => {
 
         total += product.price;
@@ -46,12 +62,23 @@ function loadCart() {
         item.className = "cart-item";
 
         item.innerHTML = `
-            <div>
+            <img 
+                src="rust-rifle.jpg" 
+                alt="${product.name}" 
+                class="cart-product-image"
+            >
+
+            <div class="cart-product-info">
                 <h2>${product.name}</h2>
-                <p>$${product.price.toFixed(2)}</p>
+                <p class="cart-product-price">
+                    $${product.price.toFixed(2)}
+                </p>
             </div>
 
-            <button onclick="removeFromCart(${index})">
+            <button 
+                class="remove-button"
+                onclick="removeFromCart(${index})"
+            >
                 Remove
             </button>
         `;
