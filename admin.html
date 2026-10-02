@@ -214,23 +214,33 @@
                     let itemsHTML = "";
 
 
-                    items.forEach(item => {
+items.forEach(item => {
 
-                        itemsHTML += `
+    itemsHTML += `
 
-                            <p>
+        <p>
 
-                                ${item.name}
+            <strong>
+                ${item.name}
+            </strong>
 
-                                -
+            -
 
-                                $${Number(item.price).toFixed(2)}
+            $${Number(item.price).toFixed(2)}
 
-                            </p>
+            <br>
 
-                        `;
+            Color:
 
-                    });
+            <strong>
+                ${item.color || "Not specified"}
+            </strong>
+
+        </p>
+
+    `;
+
+});
 
 
                     orderDiv.innerHTML = `

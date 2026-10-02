@@ -1,57 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Products - RUST LABS</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
     <nav>
-        <div class="logo">RUST LABS</div>
+
+        <div class="logo">
+            RUST LABS
+        </div>
 
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="cart.html">Cart</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="cart.html">
+                Cart
+            </a>
+
         </div>
+
     </nav>
+
 
     <main>
 
-<h1>Our Products</h1>
+        <h1>Our Products</h1>
 
-<div class="products">
 
-    <div class="product-card">
+        <div class="products">
 
-        <div class="product-image">
-            PRODUCT IMAGE
+
+            <!-- ========================= -->
+            <!-- SEMI AUTOMATIC RIFLE -->
+            <!-- ========================= -->
+
+            <div class="product-card">
+
+                <img
+                    src="rust-rifle.jpg"
+                    alt="3D Printed Rust Semi Automatic Rifle">
+
+                <h2>
+                    Rust Semi Automatic Rifle
+                </h2>
+
+                <p class="price">
+                    $24.99
+                </p>
+
+                <p class="description">
+                    210mm Long Semi Automatic Rifle.
+                    3D Printed Non-Functional Replica.
+                </p>
+
+
+                <!-- COLOR SELECTOR -->
+
+                <div class="color-section">
+
+                    <p>
+                        <strong>Color:</strong>
+
+                        <span class="selected-color-name">
+                            Select a color
+                        </span>
+                    </p>
+
+
+                    <div class="color-options">
+
+
+                        <button
+                            class="color-circle color-black"
+                            title="Black"
+                            aria-label="Black"
+                            onclick="selectColor('Rust Semi Automatic Rifle', 'Black', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-white"
+                            title="White"
+                            aria-label="White"
+                            onclick="selectColor('Rust Semi Automatic Rifle', 'White', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-brown"
+                            title="Brown"
+                            aria-label="Brown"
+                            onclick="selectColor('Rust Semi Automatic Rifle', 'Brown', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-grey"
+                            title="Grey"
+                            aria-label="Grey"
+                            onclick="selectColor('Rust Semi Automatic Rifle', 'Grey', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-blue"
+                            title="Blue"
+                            aria-label="Blue"
+                            onclick="selectColor('Rust Semi Automatic Rifle', 'Blue', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-purple"
+                            title="Purple"
+                            aria-label="Purple"
+                            onclick="selectColor('Rust Semi Automatic Rifle', 'Purple', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-pink"
+                            title="Pink"
+                            aria-label="Pink"
+                            onclick="selectColor('Rust Semi Automatic Rifle', 'Pink', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-orange"
+                            title="Orange"
+                            aria-label="Orange"
+                            onclick="selectColor('Rust Semi Automatic Rifle', 'Orange', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-yellow"
+                            title="Yellow"
+                            aria-label="Yellow"
+                            onclick="selectColor('Rust Semi Automatic Rifle', 'Yellow', this)">
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    onclick="addToCart('Rust Semi Automatic Rifle')">
+
+                    Add to Cart
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ========================= -->
+            <!-- RUST REVOLVER -->
+            <!-- ========================= -->
+
+            <div class="product-card">
+
+                <img
+                    src="images/rust-revolver.png"
+                    alt="3D Printed Rust Revolver">
+
+                <h2>
+                    Rust Revolver
+                </h2>
+
+                <p class="price">
+                    $29.99
+                </p>
+
+                <p class="description">
+                    Hand Size Small Handheld Rust Revolver.
+                    3D Printed Non-Functional Replica.
+                </p>
+
+
+                <!-- COLOR SELECTOR -->
+
+                <div class="color-section">
+
+                    <p>
+                        <strong>Color:</strong>
+
+                        <span class="selected-color-name">
+                            Select a color
+                        </span>
+                    </p>
+
+
+                    <div class="color-options">
+
+
+                        <button
+                            class="color-circle color-black"
+                            title="Black"
+                            aria-label="Black"
+                            onclick="selectColor('Rust Revolver', 'Black', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-white"
+                            title="White"
+                            aria-label="White"
+                            onclick="selectColor('Rust Revolver', 'White', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-brown"
+                            title="Brown"
+                            aria-label="Brown"
+                            onclick="selectColor('Rust Revolver', 'Brown', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-grey"
+                            title="Grey"
+                            aria-label="Grey"
+                            onclick="selectColor('Rust Revolver', 'Grey', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-blue"
+                            title="Blue"
+                            aria-label="Blue"
+                            onclick="selectColor('Rust Revolver', 'Blue', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-purple"
+                            title="Purple"
+                            aria-label="Purple"
+                            onclick="selectColor('Rust Revolver', 'Purple', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-pink"
+                            title="Pink"
+                            aria-label="Pink"
+                            onclick="selectColor('Rust Revolver', 'Pink', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-orange"
+                            title="Orange"
+                            aria-label="Orange"
+                            onclick="selectColor('Rust Revolver', 'Orange', this)">
+                        </button>
+
+
+                        <button
+                            class="color-circle color-yellow"
+                            title="Yellow"
+                            aria-label="Yellow"
+                            onclick="selectColor('Rust Revolver', 'Yellow', this)">
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    onclick="addToCart('Rust Revolver')">
+
+                    Add to Cart
+
+                </button>
+
+            </div>
+
+
         </div>
-
-        <h2>Rust Semi Automatic Rifle</h2>
-
-        <p class="price">$34.99</p>
-
-        <p class="description">
-            210mm Long Semi Automatic Rifle.
-        </p>
-
-        <button onclick="addToCart()">
-            Add to Cart
-        </button>
-
-    </div>
-
-</div>
 
     </main>
 
-<script src="script.js"></script>
+    <div class="tiktok-corner">
+    TikTok — @rustlabsofficial
+</div>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>

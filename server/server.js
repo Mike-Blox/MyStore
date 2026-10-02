@@ -15,10 +15,42 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 // PRODUCT CATALOG
 // =========================
 
+// =========================
+// PRODUCT CATALOG
+// =========================
+
+const defaultColors = [
+
+    "Black",
+    "White",
+    "Brown",
+    "Grey",
+    "Blue",
+    "Purple",
+    "Pink",
+    "Orange",
+    "Yellow"
+
+];
+
+
 const products = {
 
     "Rust Semi Automatic Rifle": {
-        price: 34.99
+
+        price: 24.99,
+
+        colors: defaultColors
+
+    },
+
+
+    "Rust Revolver": {
+
+        price: 29.99,
+
+        colors: defaultColors
+
     }
 
 };
@@ -224,13 +256,30 @@ for (const item of items) {
 
     }
 
-    verifiedItems.push({
+    if (
+    !item.color ||
+    !product.colors.includes(item.color)
+) {
 
-        name: item.name,
+    return res.status(400).json({
 
-        price: product.price
+        success: false,
+
+        message: "Invalid product color."
 
     });
+
+}
+
+verifiedItems.push({
+
+    name: item.name,
+
+    price: product.price,
+
+    color: item.color
+
+});
 
 }
 

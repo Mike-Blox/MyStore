@@ -463,3 +463,154 @@ button:hover {
         text-align: center;
     }
 }
+
+/* =========================
+   PRODUCT IMAGES
+========================= */
+
+.product-card img {
+    width: 240px;
+    height: 220px;
+
+    object-fit: contain;
+
+    display: block;
+
+    margin: 0 auto 20px auto;
+
+    border-radius: 8px;
+
+    background: #333;
+}
+
+/* =========================
+   PRODUCT COLOR SELECTOR
+========================= */
+
+.color-section {
+    margin: 20px 0;
+}
+
+.color-section p {
+    margin-bottom: 12px;
+}
+
+.selected-color-name {
+    color: #aaa;
+    margin-left: 5px;
+}
+
+
+/* Color row */
+
+.color-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Individual circle */
+
+.color-circle {
+    width: 32px !important;
+    height: 32px !important;
+
+    min-width: 32px;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border-radius: 50% !important;
+
+    border: 3px solid #555 !important;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        border 0.15s ease;
+}
+
+
+.color-circle:hover {
+    transform: scale(1.15);
+}
+
+
+/* Selected color */
+
+.color-circle.selected {
+    border: 3px solid white !important;
+
+    outline: 3px solid #777;
+
+    transform: scale(1.12);
+}
+
+
+/* =========================
+   COLORS
+========================= */
+
+.color-black {
+    background: #111 !important;
+}
+
+.color-white {
+    background: #ffffff !important;
+}
+
+.color-brown {
+    background: #795548 !important;
+}
+
+.color-grey {
+    background: #808080 !important;
+}
+
+.color-blue {
+    background: #2563eb !important;
+}
+
+.color-purple {
+    background: #9333ea !important;
+}
+
+.color-pink {
+    background: #ec4899 !important;
+}
+
+.color-orange {
+    background: #f97316 !important;
+}
+
+.color-yellow {
+    background: #facc15 !important;
+}
+
+/* =========================
+   TIKTOK CORNER
+========================= */
+
+.tiktok-corner {
+    position: fixed;
+    right: 20px;
+    bottom: 15px;
+
+    background: #1c1c1c;
+    color: white;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+    border: 1px solid #444;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    z-index: 1000;
+}
