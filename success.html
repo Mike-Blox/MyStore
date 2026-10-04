@@ -4,137 +4,201 @@
 
 <head>
 
-```
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<title>Order Confirmed - RUST LABS</title>
+    <title>Order Confirmed - RUST LABS</title>
 
-<link rel="stylesheet"
-    href="style.css">
-```
+    <link rel="stylesheet"
+        href="style.css">
 
 </head>
 
 <body>
 
-```
-<nav>
+    <nav>
 
-    <div class="logo">
-        RUST LABS
-    </div>
+        <div class="logo">
+            RUST LABS
+        </div>
 
-    <div class="nav-links">
+        <div class="nav-links">
 
-        <a href="index.html">
-            Home
-        </a>
+            <a href="index.html">
+                Home
+            </a>
 
-        <a href="products.html">
-            Products
-        </a>
+            <a href="products.html">
+                Products
+            </a>
 
-        <a href="cart.html">
-            Cart
-        </a>
-
-    </div>
-
-</nav>
-
-
-<main>
-
-    <div class="checkout-container">
-
-        <div class="checkout-section">
-
-            <h1>
-                Order Confirmed! 🎉
-            </h1>
-
-            <h2>
-                Order #<span id="order-number"></span>
-            </h2>
-
-            <p id="payment-status"></p>
-
-            <div id="zelle-confirmation"
-                style="display: none;">
-
-                <h3>
-                    Zelle Payment
-                </h3>
-
-                <p>
-                    Please send your payment to the
-                    Zelle number shown on the checkout page.
-                </p>
-
-                <p>
-                    Your order will remain pending until
-                    your Zelle payment is verified.
-                </p>
-
-            </div>
-
-            <br>
-
-            <button onclick="window.location.href='index.html'">
-                Return to Store
-            </button>
+            <a href="cart.html">
+                Cart
+            </a>
 
         </div>
 
-    </div>
-
-</main>
+    </nav>
 
 
-<script>
+    <main>
 
-    const orderId =
-        localStorage.getItem("lastOrderId");
+        <div class="checkout-container">
 
-    const paymentMethod =
-        localStorage.getItem("lastPaymentMethod");
+            <div class="checkout-section">
+
+                <h1>
+                    Order Confirmed! 🎉
+                </h1>
+
+                <h2>
+                    Order #<span id="order-number"></span>
+                </h2>
+
+                <p id="payment-status"></p>
 
 
-    document.getElementById(
-        "order-number"
-    ).textContent =
-        orderId || "Unknown";
+                <!-- ZELLE CONFIRMATION -->
+
+                <div
+                    id="zelle-confirmation"
+                    style="display: none;"
+                >
+
+                    <h3>
+                        Zelle Payment
+                    </h3>
+
+                    <p>
+                        Please send your payment to the
+                        Zelle number shown on the checkout page.
+                    </p>
+
+                    <p>
+                        Your order will remain pending until
+                        your Zelle payment is verified.
+                    </p>
+
+                </div>
 
 
-    if (paymentMethod === "zelle") {
+                <!-- CASH APP CONFIRMATION -->
+
+                <div
+                    id="cashapp-confirmation"
+                    style="display: none;"
+                >
+
+                    <h3>
+                        Cash App Payment
+                    </h3>
+
+                    <p>
+                        Please send your payment to the
+                        Cash App shown on the checkout page.
+                    </p>
+
+                    <p>
+                        Your order will remain pending until
+                        your Cash App payment is verified.
+                    </p>
+
+                </div>
+
+
+                <br>
+
+
+                <button
+                    onclick="window.location.href='index.html'"
+                >
+                    Return to Store
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script>
+
+        const orderId =
+            localStorage.getItem(
+                "lastOrderId"
+            );
+
+
+        const paymentMethod =
+            localStorage.getItem(
+                "lastPaymentMethod"
+            );
+
 
         document.getElementById(
-            "payment-status"
+            "order-number"
         ).textContent =
-            "Payment Method: Zelle — Pending Verification";
+            orderId || "Unknown";
 
 
-        document.getElementById(
-            "zelle-confirmation"
-        ).style.display =
-            "block";
+        // =========================
+        // ZELLE
+        // =========================
 
-    } else {
+        if (paymentMethod === "zelle") {
 
-        document.getElementById(
-            "payment-status"
-        ).textContent =
-            "Payment Method: Card / Other";
+            document.getElementById(
+                "payment-status"
+            ).textContent =
+                "Payment Method: Zelle — Pending Verification";
 
-    }
 
-</script>
-```
+            document.getElementById(
+                "zelle-confirmation"
+            ).style.display =
+                "block";
+
+        }
+
+
+        // =========================
+        // CASH APP
+        // =========================
+
+        else if (paymentMethod === "cashapp") {
+
+            document.getElementById(
+                "payment-status"
+            ).textContent =
+                "Payment Method: Cash App — Pending Verification";
+
+
+            document.getElementById(
+                "cashapp-confirmation"
+            ).style.display =
+                "block";
+
+        }
+
+
+        // =========================
+        // UNKNOWN
+        // =========================
+
+        else {
+
+            document.getElementById(
+                "payment-status"
+            ).textContent =
+                "Payment Method: Unknown";
+
+        }
+
+    </script>
 
 </body>
 
 </html>
-

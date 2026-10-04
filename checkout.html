@@ -109,34 +109,103 @@
 
                 <h2>Payment Method</h2>
 
-                <button onclick="selectPayment('zelle')">
-                    💜 Zelle
-                </button>
+
+                <!-- ZELLE -->
+
+<button
+    class="payment-button"
+    onclick="selectPayment('zelle')"
+>
+    <img
+        src="images/zelle.png"
+        alt="Zelle"
+        class="payment-icon"
+    >
+
+    <span>Zelle</span>
+</button>
+
+
+<button
+    class="payment-button"
+    onclick="selectPayment('cashapp')"
+>
+    <img
+        src="images/cashapp.png"
+        alt="Cash App"
+        class="payment-icon"
+    >
+
+    <span>Cash App</span>
+</button>
+
 
                 <p id="payment-message"></p>
-                <div id="zelle-instructions" style="display: none;">
 
-    <h3>Pay with Zelle</h3>
 
-    <p>
-        Send your payment to our Zelle business phone number:
-    </p>
+                <!-- ZELLE INSTRUCTIONS -->
 
-    <p>
-        <strong>929-422-5005</strong>
-    </p>
+                <div
+                    id="zelle-instructions"
+                    style="display: none;"
+                >
 
-    <p>
-        After sending the payment, keep your confirmation
-        for your records.
-    </p>
+                    <h3>Pay with Zelle</h3>
 
-    <p>
-        Your order will remain pending until we verify
-        the Zelle payment.
-    </p>
+                    <p>
+                        Send your payment to our Zelle
+                        business phone number:
+                    </p>
 
-</div>
+                    <p>
+                        <strong>929-422-5005</strong>
+                    </p>
+
+                    <p>
+                        After sending the payment,
+                        keep your confirmation for
+                        your records.
+                    </p>
+
+                    <p>
+                        Your order will remain pending
+                        until we verify the Zelle payment.
+                    </p>
+
+                </div>
+
+
+                <!-- CASH APP INSTRUCTIONS -->
+
+                <div
+                    id="cashapp-instructions"
+                    style="display: none;"
+                >
+
+                    <h3>Pay with Cash App</h3>
+
+                    <p>
+                        Send your payment to our
+                        Cash App:
+                    </p>
+
+                    <p>
+                        <strong>$rustlabs</strong>
+                    </p>
+
+                    <p>
+                        After sending the payment,
+                        keep your confirmation for
+                        your records.
+                    </p>
+
+                    <p>
+                        Your order will remain pending
+                        until we verify the Cash App
+                        payment.
+                    </p>
+
+                </div>
 
             </div>
 

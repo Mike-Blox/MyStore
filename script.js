@@ -445,8 +445,7 @@ let selectedPayment = null;
 
 function selectPayment(method) {
 
-    selectedPayment =
-        method;
+    selectedPayment = method;
 
 
     const message =
@@ -461,6 +460,26 @@ function selectPayment(method) {
         );
 
 
+    const cashAppInstructions =
+        document.getElementById(
+            "cashapp-instructions"
+        );
+
+
+    // Hide both first
+
+    if (zelleInstructions) {
+        zelleInstructions.style.display = "none";
+    }
+
+
+    if (cashAppInstructions) {
+        cashAppInstructions.style.display = "none";
+    }
+
+
+    // ZELLE
+
     if (method === "zelle") {
 
         message.textContent =
@@ -468,6 +487,20 @@ function selectPayment(method) {
 
 
         zelleInstructions.style.display =
+            "block";
+
+    }
+
+
+    // CASH APP
+
+    if (method === "cashapp") {
+
+        message.textContent =
+            "Cash App payment selected.";
+
+
+        cashAppInstructions.style.display =
             "block";
 
     }
