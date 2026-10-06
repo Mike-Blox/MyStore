@@ -49,6 +49,28 @@
         }
 
 
+        .order-totals {
+
+            margin-top: 20px;
+
+            padding-top: 15px;
+
+            border-top: 1px solid #444;
+
+        }
+
+
+        .order-total-final {
+
+            font-size: 20px !important;
+
+            font-weight: bold;
+
+            margin-top: 12px;
+
+        }
+
+
         .status-section {
 
             margin-top: 25px;
@@ -213,34 +235,56 @@
 
                     let itemsHTML = "";
 
+                    let subtotal = 0;
 
-items.forEach(item => {
 
-    itemsHTML += `
+                    items.forEach(item => {
 
-        <p>
+                        const itemPrice =
+                            Number(item.price) || 0;
 
-            <strong>
-                ${item.name}
-            </strong>
 
-            -
+                        subtotal += itemPrice;
 
-            $${Number(item.price).toFixed(2)}
 
-            <br>
+                        itemsHTML += `
 
-            Color:
+                            <p>
 
-            <strong>
-                ${item.color || "Not specified"}
-            </strong>
+                                <strong>
+                                    ${item.name}
+                                </strong>
 
-        </p>
+                                -
 
-    `;
+                                $${itemPrice.toFixed(2)}
 
-});
+                                <br>
+
+                                Color:
+
+                                <strong>
+                                    ${item.color || "Not specified"}
+                                </strong>
+
+                            </p>
+
+                        `;
+
+                    });
+
+
+                    // Shipping is calculated by
+                    // the server when the order is placed.
+
+                    const shippingCost =
+                        Number(
+                            order.shipping_cost
+                        ) || 0;
+
+
+                    const orderTotal =
+                        subtotal + shippingCost;
 
 
                     orderDiv.innerHTML = `
@@ -334,6 +378,41 @@ items.forEach(item => {
 
 
                         ${itemsHTML}
+
+
+                        <div class="order-totals">
+
+                            <p>
+
+                                <strong>
+                                    Subtotal:
+                                </strong>
+
+                                $${subtotal.toFixed(2)}
+
+                            </p>
+
+
+                            <p>
+
+                                <strong>
+                                    Shipping:
+                                </strong>
+
+                                $${shippingCost.toFixed(2)}
+
+                            </p>
+
+
+                            <p class="order-total-final">
+
+                                Order Total:
+
+                                $${orderTotal.toFixed(2)}
+
+                            </p>
+
+                        </div>
 
 
                         <div class="status-section">

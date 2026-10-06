@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Cart - RUST LABS</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -20,11 +24,17 @@
 
         <div class="nav-links">
 
-            <a href="index.html">Home</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="products.html">Products</a>
+            <a href="products.html">
+                Products
+            </a>
 
-            <a href="cart.html">Cart</a>
+            <a href="cart.html">
+                Cart
+            </a>
 
         </div>
 
@@ -35,17 +45,36 @@
 
         <h1>Your Cart</h1>
 
+
         <div id="cart-items"></div>
+
 
         <div class="cart-total">
 
+
+            <p>
+                Subtotal:
+                $<span id="cart-subtotal">0.00</span>
+            </p>
+
+
+            <p>
+                Shipping
+                ($2.99 per item):
+                $<span id="cart-shipping">0.00</span>
+            </p>
+
+
             <h2>
-                Total: $<span id="cart-total">0.00</span>
+                Total:
+                $<span id="cart-total">0.00</span>
             </h2>
+
 
             <button onclick="checkout()">
                 Checkout
             </button>
+
 
         </div>
 

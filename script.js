@@ -2,6 +2,13 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
 // =========================
+// SHIPPING
+// =========================
+
+const SHIPPING_PER_ITEM = 2.99;
+
+
+// =========================
 // DEFAULT PRODUCT COLORS
 // =========================
 
@@ -36,6 +43,13 @@ const products = {
         price: 29.99,
         image: "images/rust-revolver.png",
         colors: defaultColors
+    },
+
+    "Rust C4 Replica": {
+        name: "Rust C4 Replica",
+        price: 19.99,
+        image: "images/rust-c4.png",
+        colors: defaultColors
     }
 
 };
@@ -56,50 +70,27 @@ function selectColor(productName, color, button) {
 
     selectedColors[productName] = color;
 
-
-    // Find the product card
-
     const productCard =
         button.closest(".product-card");
-
-
-    // Remove selected class from other circles
 
     const circles =
         productCard.querySelectorAll(
             ".color-circle"
         );
 
-
     circles.forEach(circle => {
-
-        circle.classList.remove(
-            "selected"
-        );
-
+        circle.classList.remove("selected");
     });
 
-
-    // Select clicked circle
-
-    button.classList.add(
-        "selected"
-    );
-
-
-    // Show selected color name
+    button.classList.add("selected");
 
     const colorName =
         productCard.querySelector(
             ".selected-color-name"
         );
 
-
     if (colorName) {
-
-        colorName.textContent =
-            color;
-
+        colorName.textContent = color;
     }
 
 }
@@ -114,7 +105,6 @@ function addToCart(productName) {
     const product =
         products[productName];
 
-
     if (!product) {
 
         alert(
@@ -122,15 +112,12 @@ function addToCart(productName) {
         );
 
         return;
-
     }
 
 
     const selectedColor =
         selectedColors[productName];
 
-
-    // Require a color
 
     if (!selectedColor) {
 
@@ -139,11 +126,8 @@ function addToCart(productName) {
         );
 
         return;
-
     }
 
-
-    // Create a separate cart item
 
     const cartProduct = {
 
@@ -158,9 +142,7 @@ function addToCart(productName) {
     };
 
 
-    cart.push(
-        cartProduct
-    );
+    cart.push(cartProduct);
 
 
     localStorage.setItem(
@@ -190,6 +172,15 @@ function loadCart() {
             "cart-items"
         );
 
+    const cartSubtotal =
+        document.getElementById(
+            "cart-subtotal"
+        );
+
+    const cartShipping =
+        document.getElementById(
+            "cart-shipping"
+        );
 
     const cartTotal =
         document.getElementById(
@@ -204,7 +195,8 @@ function loadCart() {
 
     cartItems.innerHTML = "";
 
-    let total = 0;
+
+    let subtotal = 0;
 
 
     if (cart.length === 0) {
@@ -234,19 +226,27 @@ function loadCart() {
         `;
 
 
-        cartTotal.textContent =
-            "0.00";
+        if (cartSubtotal) {
+            cartSubtotal.textContent = "0.00";
+        }
+
+        if (cartShipping) {
+            cartShipping.textContent = "0.00";
+        }
+
+        if (cartTotal) {
+            cartTotal.textContent = "0.00";
+        }
 
 
         return;
-
     }
 
 
     cart.forEach(
         (product, index) => {
 
-            total += product.price;
+            subtotal += product.price;
 
 
             const item =
@@ -298,16 +298,42 @@ function loadCart() {
             `;
 
 
-            cartItems.appendChild(
-                item
-            );
+            cartItems.appendChild(item);
 
         }
     );
 
 
-    cartTotal.textContent =
-        total.toFixed(2);
+    const shipping =
+        cart.length * SHIPPING_PER_ITEM;
+
+
+    const total =
+        subtotal + shipping;
+
+
+    if (cartSubtotal) {
+
+        cartSubtotal.textContent =
+            subtotal.toFixed(2);
+
+    }
+
+
+    if (cartShipping) {
+
+        cartShipping.textContent =
+            shipping.toFixed(2);
+
+    }
+
+
+    if (cartTotal) {
+
+        cartTotal.textContent =
+            total.toFixed(2);
+
+    }
 
 }
 
@@ -318,10 +344,7 @@ function loadCart() {
 
 function removeFromCart(index) {
 
-    cart.splice(
-        index,
-        1
-    );
+    cart.splice(index, 1);
 
 
     localStorage.setItem(
@@ -348,7 +371,6 @@ function checkout() {
         );
 
         return;
-
     }
 
 
@@ -369,6 +391,15 @@ function loadCheckout() {
             "checkout-items"
         );
 
+    const checkoutSubtotal =
+        document.getElementById(
+            "checkout-subtotal"
+        );
+
+    const checkoutShipping =
+        document.getElementById(
+            "checkout-shipping"
+        );
 
     const checkoutTotal =
         document.getElementById(
@@ -383,13 +414,14 @@ function loadCheckout() {
 
     checkoutItems.innerHTML = "";
 
-    let total = 0;
+
+    let subtotal = 0;
 
 
     cart.forEach(
         (product) => {
 
-            total += product.price;
+            subtotal += product.price;
 
 
             const item =
@@ -422,16 +454,42 @@ function loadCheckout() {
             `;
 
 
-            checkoutItems.appendChild(
-                item
-            );
+            checkoutItems.appendChild(item);
 
         }
     );
 
 
-    checkoutTotal.textContent =
-        total.toFixed(2);
+    const shipping =
+        cart.length * SHIPPING_PER_ITEM;
+
+
+    const total =
+        subtotal + shipping;
+
+
+    if (checkoutSubtotal) {
+
+        checkoutSubtotal.textContent =
+            subtotal.toFixed(2);
+
+    }
+
+
+    if (checkoutShipping) {
+
+        checkoutShipping.textContent =
+            shipping.toFixed(2);
+
+    }
+
+
+    if (checkoutTotal) {
+
+        checkoutTotal.textContent =
+            total.toFixed(2);
+
+    }
 
 }
 
@@ -466,19 +524,17 @@ function selectPayment(method) {
         );
 
 
-    // Hide both first
-
     if (zelleInstructions) {
-        zelleInstructions.style.display = "none";
+        zelleInstructions.style.display =
+            "none";
     }
 
 
     if (cashAppInstructions) {
-        cashAppInstructions.style.display = "none";
+        cashAppInstructions.style.display =
+            "none";
     }
 
-
-    // ZELLE
 
     if (method === "zelle") {
 
@@ -491,8 +547,6 @@ function selectPayment(method) {
 
     }
 
-
-    // CASH APP
 
     if (method === "cashapp") {
 
@@ -550,8 +604,6 @@ async function placeOrder() {
         ).value;
 
 
-    // Check customer information
-
     if (
         name === "" ||
         email === ""
@@ -562,11 +614,8 @@ async function placeOrder() {
         );
 
         return;
-
     }
 
-
-    // Check payment method
 
     if (
         selectedPayment === null
@@ -577,11 +626,8 @@ async function placeOrder() {
         );
 
         return;
-
     }
 
-
-    // Check cart
 
     if (
         cart.length === 0
@@ -592,11 +638,12 @@ async function placeOrder() {
         );
 
         return;
-
     }
 
 
-    // Create order
+    const shipping =
+        cart.length * SHIPPING_PER_ITEM;
+
 
     const order = {
 
@@ -617,7 +664,9 @@ async function placeOrder() {
 
             state: state,
 
-            zip: zip
+            zip: zip,
+
+            cost: shipping
 
         },
 
@@ -630,8 +679,6 @@ async function placeOrder() {
 
     };
 
-
-    // Send order to server
 
     try {
 
@@ -650,9 +697,7 @@ async function placeOrder() {
                     },
 
                     body:
-                        JSON.stringify(
-                            order
-                        )
+                        JSON.stringify(order)
 
                 }
             );
@@ -662,11 +707,7 @@ async function placeOrder() {
             await response.json();
 
 
-        if (
-            result.success
-        ) {
-
-            // Save order information
+        if (result.success) {
 
             localStorage.setItem(
                 "lastOrderId",
@@ -680,8 +721,6 @@ async function placeOrder() {
             );
 
 
-            // Clear cart
-
             cart = [];
 
 
@@ -690,8 +729,6 @@ async function placeOrder() {
                 JSON.stringify(cart)
             );
 
-
-            // Go to confirmation page
 
             window.location.href =
                 "success.html";
@@ -710,9 +747,7 @@ async function placeOrder() {
 
     catch (error) {
 
-        console.error(
-            error
-        );
+        console.error(error);
 
 
         alert(
