@@ -50,6 +50,13 @@ const products = {
         price: 19.99,
         image: "images/rust-c4.png",
         colors: defaultColors
+    },
+
+    "Life Sized Rust MP5": {
+        name: "Life Sized Rust MP5",
+        price: 199.99,
+        image: "images/rust-mp5.png",
+        colors: ["Black", "White"]
     }
 
 };
