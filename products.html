@@ -4,9 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Products - RUST LABS</title>
 
@@ -16,9 +14,7 @@
 <body>
 
     <nav>
-        <div class="logo">
-            RUST LABS
-        </div>
+        <div class="logo">RUST LABS</div>
 
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -31,383 +27,462 @@
 
         <h1>Our Products</h1>
 
-        <div class="products">
+        <!-- GAME CATEGORY BUTTONS -->
 
-            <!-- ========================= -->
-            <!-- SEMI AUTOMATIC RIFLE -->
-            <!-- ========================= -->
+        <div class="game-category-switch">
 
-            <div class="product-card">
-
+            <button
+                type="button"
+                class="game-tab rust-tab active"
+                id="rust-tab"
+                aria-pressed="true"
+                onclick="showGameCategory('rust')"
+            >
                 <img
-                    src="rust-rifle.jpg"
-                    alt="3D Printed Rust Semi Automatic Rifle"
+                    src="images/rust-logo.png"
+                    alt=""
+                    class="game-tab-icon"
                 >
+                RUST
+            </button>
 
-                <h2>Rust Semi Automatic Rifle</h2>
-
-                <p class="price">$24.99</p>
-
-                <p class="description">
-                    210mm Long Semi Automatic Rifle.
-                    3D Printed Non-Functional Replica.
-                </p>
-
-                <div class="color-section">
-
-                    <p>
-                        <strong>Color:</strong>
-                        <span class="selected-color-name">
-                            Select a color
-                        </span>
-                    </p>
-
-                    <div class="color-options">
-
-                        <button class="color-circle color-black"
-                            title="Black"
-                            aria-label="Black"
-                            onclick="selectColor('Rust Semi Automatic Rifle', 'Black', this)">
-                        </button>
-
-                        <button class="color-circle color-white"
-                            title="White"
-                            aria-label="White"
-                            onclick="selectColor('Rust Semi Automatic Rifle', 'White', this)">
-                        </button>
-
-                        <button class="color-circle color-brown"
-                            title="Brown"
-                            aria-label="Brown"
-                            onclick="selectColor('Rust Semi Automatic Rifle', 'Brown', this)">
-                        </button>
-
-                        <button class="color-circle color-grey"
-                            title="Grey"
-                            aria-label="Grey"
-                            onclick="selectColor('Rust Semi Automatic Rifle', 'Grey', this)">
-                        </button>
-
-                        <button class="color-circle color-blue"
-                            title="Blue"
-                            aria-label="Blue"
-                            onclick="selectColor('Rust Semi Automatic Rifle', 'Blue', this)">
-                        </button>
-
-                        <button class="color-circle color-purple"
-                            title="Purple"
-                            aria-label="Purple"
-                            onclick="selectColor('Rust Semi Automatic Rifle', 'Purple', this)">
-                        </button>
-
-                        <button class="color-circle color-pink"
-                            title="Pink"
-                            aria-label="Pink"
-                            onclick="selectColor('Rust Semi Automatic Rifle', 'Pink', this)">
-                        </button>
-
-                        <button class="color-circle color-orange"
-                            title="Orange"
-                            aria-label="Orange"
-                            onclick="selectColor('Rust Semi Automatic Rifle', 'Orange', this)">
-                        </button>
-
-                        <button class="color-circle color-yellow"
-                            title="Yellow"
-                            aria-label="Yellow"
-                            onclick="selectColor('Rust Semi Automatic Rifle', 'Yellow', this)">
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <button onclick="addToCart('Rust Semi Automatic Rifle')">
-                    Add to Cart
-                </button>
-
-            </div>
-
-
-            <!-- ========================= -->
-            <!-- RUST REVOLVER -->
-            <!-- ========================= -->
-
-            <div class="product-card">
-
+            <button
+                type="button"
+                class="game-tab cs2-tab"
+                id="cs2-tab"
+                aria-pressed="false"
+                onclick="showGameCategory('cs2')"
+            >
                 <img
-                    src="images/rust-revolver.png"
-                    alt="3D Printed Rust Revolver"
+                    src="images/cs2-logo.png"
+                    alt=""
+                    class="game-tab-icon"
                 >
-
-                <h2>Rust Revolver</h2>
-
-                <p class="price">$29.99</p>
-
-                <p class="description">
-                    Hand Size Small Handheld Rust Revolver.
-                    3D Printed Non-Functional Replica.
-                </p>
-
-                <div class="color-section">
-
-                    <p>
-                        <strong>Color:</strong>
-                        <span class="selected-color-name">
-                            Select a color
-                        </span>
-                    </p>
-
-                    <div class="color-options">
-
-                        <button class="color-circle color-black"
-                            title="Black"
-                            aria-label="Black"
-                            onclick="selectColor('Rust Revolver', 'Black', this)">
-                        </button>
-
-                        <button class="color-circle color-white"
-                            title="White"
-                            aria-label="White"
-                            onclick="selectColor('Rust Revolver', 'White', this)">
-                        </button>
-
-                        <button class="color-circle color-brown"
-                            title="Brown"
-                            aria-label="Brown"
-                            onclick="selectColor('Rust Revolver', 'Brown', this)">
-                        </button>
-
-                        <button class="color-circle color-grey"
-                            title="Grey"
-                            aria-label="Grey"
-                            onclick="selectColor('Rust Revolver', 'Grey', this)">
-                        </button>
-
-                        <button class="color-circle color-blue"
-                            title="Blue"
-                            aria-label="Blue"
-                            onclick="selectColor('Rust Revolver', 'Blue', this)">
-                        </button>
-
-                        <button class="color-circle color-purple"
-                            title="Purple"
-                            aria-label="Purple"
-                            onclick="selectColor('Rust Revolver', 'Purple', this)">
-                        </button>
-
-                        <button class="color-circle color-pink"
-                            title="Pink"
-                            aria-label="Pink"
-                            onclick="selectColor('Rust Revolver', 'Pink', this)">
-                        </button>
-
-                        <button class="color-circle color-orange"
-                            title="Orange"
-                            aria-label="Orange"
-                            onclick="selectColor('Rust Revolver', 'Orange', this)">
-                        </button>
-
-                        <button class="color-circle color-yellow"
-                            title="Yellow"
-                            aria-label="Yellow"
-                            onclick="selectColor('Rust Revolver', 'Yellow', this)">
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <button onclick="addToCart('Rust Revolver')">
-                    Add to Cart
-                </button>
-
-            </div>
-
-
-            <!-- ========================= -->
-            <!-- RUST C4 REPLICA -->
-            <!-- ========================= -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/rust-c4.png"
-                    alt="3D Printed Rust C4 Replica"
-                >
-
-                <h2>Rust C4 Replica</h2>
-
-                <p class="price">$19.99</p>
-
-                <p class="description">
-                    Full-size, real-life C4 from Rust —
-                    3D-printed non-functional replica.
-                </p>
-
-                <div class="color-section">
-
-                    <p>
-                        <strong>Color:</strong>
-                        <span class="selected-color-name">
-                            Select a color
-                        </span>
-                    </p>
-
-                    <div class="color-options">
-
-                        <button class="color-circle color-black"
-                            title="Black"
-                            aria-label="Black"
-                            onclick="selectColor('Rust C4 Replica', 'Black', this)">
-                        </button>
-
-                        <button class="color-circle color-white"
-                            title="White"
-                            aria-label="White"
-                            onclick="selectColor('Rust C4 Replica', 'White', this)">
-                        </button>
-
-                        <button class="color-circle color-brown"
-                            title="Brown"
-                            aria-label="Brown"
-                            onclick="selectColor('Rust C4 Replica', 'Brown', this)">
-                        </button>
-
-                        <button class="color-circle color-grey"
-                            title="Grey"
-                            aria-label="Grey"
-                            onclick="selectColor('Rust C4 Replica', 'Grey', this)">
-                        </button>
-
-                        <button class="color-circle color-blue"
-                            title="Blue"
-                            aria-label="Blue"
-                            onclick="selectColor('Rust C4 Replica', 'Blue', this)">
-                        </button>
-
-                        <button class="color-circle color-purple"
-                            title="Purple"
-                            aria-label="Purple"
-                            onclick="selectColor('Rust C4 Replica', 'Purple', this)">
-                        </button>
-
-                        <button class="color-circle color-pink"
-                            title="Pink"
-                            aria-label="Pink"
-                            onclick="selectColor('Rust C4 Replica', 'Pink', this)">
-                        </button>
-
-                        <button class="color-circle color-orange"
-                            title="Orange"
-                            aria-label="Orange"
-                            onclick="selectColor('Rust C4 Replica', 'Orange', this)">
-                        </button>
-
-                        <button class="color-circle color-yellow"
-                            title="Yellow"
-                            aria-label="Yellow"
-                            onclick="selectColor('Rust C4 Replica', 'Yellow', this)">
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <button onclick="addToCart('Rust C4 Replica')">
-                    Add to Cart
-                </button>
-
-            </div>
-
-
-            <!-- ========================= -->
-            <!-- LIFE SIZED RUST MP5 -->
-            <!-- ========================= -->
-
-            <div class="product-card">
-
-                <img
-                    src="images/rust-mp5.png"
-                    alt="Life Sized Rust MP5 3D Printed Replica"
-                >
-
-                <h2>Life Sized Rust MP5</h2>
-
-                <p class="price">$199.99</p>
-
-                <p class="description">
-                    Life-sized Rust MP5.
-                    3D-printed non-functional replica.
-                </p>
-
-                <div class="color-section">
-
-                    <p>
-                        <strong>Color:</strong>
-                        <span class="selected-color-name">
-                            Select a color
-                        </span>
-                    </p>
-
-                    <div class="color-options">
-
-                        <button class="color-circle color-black"
-                            title="Black"
-                            aria-label="Black"
-                            onclick="selectColor('Life Sized Rust MP5', 'Black', this)">
-                        </button>
-
-                        <button class="color-circle color-white"
-                            title="White"
-                            aria-label="White"
-                            onclick="selectColor('Life Sized Rust MP5', 'White', this)">
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <button onclick="addToCart('Life Sized Rust MP5')">
-                    Add to Cart
-                </button>
-
-            </div>
+                CS2
+            </button>
 
         </div>
 
+        <!-- RUST SHOP -->
 
-        <!-- ========================= -->
-        <!-- CUSTOM RUST SKINS -->
-        <!-- ========================= -->
+        <section class="game-shop-section" id="rust-shop">
 
-        <div class="custom-skin-message"
-             style="text-align:center; margin:35px auto; padding:25px;">
+            <div class="products">
 
-            <h2>Custom Rust Skins</h2>
+                <!-- RUST SEMI AUTOMATIC RIFLE -->
 
-            <p>
-                Want any rust skin on your purchase?
-                Email us and request it!
-            </p>
+                <div class="product-card">
 
-            <p>
-                <a href="mailto:rustlabsofficial@gmail.com">
-                    rustlabsofficial@gmail.com
-                </a>
-            </p>
+                    <img
+                        src="rust-rifle.jpg"
+                        alt="3D Printed Rust Semi Automatic Rifle"
+                    >
 
-        </div>
+                    <h2>Rust Semi Automatic Rifle</h2>
+
+                    <p class="price">$24.99</p>
+
+                    <p class="description">
+                        210mm Long Semi Automatic Rifle.
+                        3D Printed Non-Functional Replica.
+                    </p>
+
+                    <div class="color-section">
+
+                        <p>
+                            <strong>Color:</strong>
+                            <span class="selected-color-name">
+                                Select a color
+                            </span>
+                        </p>
+
+                        <div class="color-options">
+
+                            <button
+                                class="color-circle color-black"
+                                title="Black"
+                                aria-label="Black"
+                                onclick="selectColor('Rust Semi Automatic Rifle', 'Black', this)">
+                            </button>
+
+                            <button
+                                class="color-circle color-white"
+                                title="White"
+                                aria-label="White"
+                                onclick="selectColor('Rust Semi Automatic Rifle', 'White', this)">
+                            </button>
+
+                            <button
+                                class="color-circle color-brown"
+                                title="Brown"
+                                aria-label="Brown"
+                                onclick="selectColor('Rust Semi Automatic Rifle', 'Brown', this)">
+                            </button>
+
+                            <button
+                                class="color-circle color-grey"
+                                title="Grey"
+                                aria-label="Grey"
+                                onclick="selectColor('Rust Semi Automatic Rifle', 'Grey', this)">
+                            </button>
+
+                            <button
+                                class="color-circle color-blue"
+                                title="Blue"
+                                aria-label="Blue"
+                                onclick="selectColor('Rust Semi Automatic Rifle', 'Blue', this)">
+                            </button>
+
+                            <button
+                                class="color-circle color-purple"
+                                title="Purple"
+                                aria-label="Purple"
+                                onclick="selectColor('Rust Semi Automatic Rifle', 'Purple', this)">
+                            </button>
+
+                            <button
+                                class="color-circle color-pink"
+                                title="Pink"
+                                aria-label="Pink"
+                                onclick="selectColor('Rust Semi Automatic Rifle', 'Pink', this)">
+                            </button>
+
+                            <button
+                                class="color-circle color-orange"
+                                title="Orange"
+                                aria-label="Orange"
+                                onclick="selectColor('Rust Semi Automatic Rifle', 'Orange', this)">
+                            </button>
+
+                            <button
+                                class="color-circle color-yellow"
+                                title="Yellow"
+                                aria-label="Yellow"
+                                onclick="selectColor('Rust Semi Automatic Rifle', 'Yellow', this)">
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <button onclick="addToCart('Rust Semi Automatic Rifle')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+                <!-- RUST REVOLVER -->
+
+                <div class="product-card">
+
+                    <img
+                        src="images/rust-revolver.png"
+                        alt="3D Printed Rust Revolver"
+                    >
+
+                    <h2>Rust Revolver</h2>
+
+                    <p class="price">$29.99</p>
+
+                    <p class="description">
+                        Hand Size Small Handheld Rust Revolver.
+                        3D Printed Non-Functional Replica.
+                    </p>
+
+                    <div class="color-section">
+
+                        <p>
+                            <strong>Color:</strong>
+                            <span class="selected-color-name">
+                                Select a color
+                            </span>
+                        </p>
+
+                        <div class="color-options">
+
+                            <button class="color-circle color-black"
+                                title="Black"
+                                aria-label="Black"
+                                onclick="selectColor('Rust Revolver', 'Black', this)">
+                            </button>
+
+                            <button class="color-circle color-white"
+                                title="White"
+                                aria-label="White"
+                                onclick="selectColor('Rust Revolver', 'White', this)">
+                            </button>
+
+                            <button class="color-circle color-brown"
+                                title="Brown"
+                                aria-label="Brown"
+                                onclick="selectColor('Rust Revolver', 'Brown', this)">
+                            </button>
+
+                            <button class="color-circle color-grey"
+                                title="Grey"
+                                aria-label="Grey"
+                                onclick="selectColor('Rust Revolver', 'Grey', this)">
+                            </button>
+
+                            <button class="color-circle color-blue"
+                                title="Blue"
+                                aria-label="Blue"
+                                onclick="selectColor('Rust Revolver', 'Blue', this)">
+                            </button>
+
+                            <button class="color-circle color-purple"
+                                title="Purple"
+                                aria-label="Purple"
+                                onclick="selectColor('Rust Revolver', 'Purple', this)">
+                            </button>
+
+                            <button class="color-circle color-pink"
+                                title="Pink"
+                                aria-label="Pink"
+                                onclick="selectColor('Rust Revolver', 'Pink', this)">
+                            </button>
+
+                            <button class="color-circle color-orange"
+                                title="Orange"
+                                aria-label="Orange"
+                                onclick="selectColor('Rust Revolver', 'Orange', this)">
+                            </button>
+
+                            <button class="color-circle color-yellow"
+                                title="Yellow"
+                                aria-label="Yellow"
+                                onclick="selectColor('Rust Revolver', 'Yellow', this)">
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <button onclick="addToCart('Rust Revolver')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+                <!-- RUST C4 REPLICA -->
+
+                <div class="product-card">
+
+                    <img
+                        src="images/rust-c4.png"
+                        alt="3D Printed Rust C4 Replica"
+                    >
+
+                    <h2>Rust C4 Replica</h2>
+
+                    <p class="price">$19.99</p>
+
+                    <p class="description">
+                        Full-size, real-life C4 from Rust —
+                        3D-printed non-functional replica.
+                    </p>
+
+                    <div class="color-section">
+
+                        <p>
+                            <strong>Color:</strong>
+                            <span class="selected-color-name">
+                                Select a color
+                            </span>
+                        </p>
+
+                        <div class="color-options">
+
+                            <button class="color-circle color-black"
+                                title="Black"
+                                aria-label="Black"
+                                onclick="selectColor('Rust C4 Replica', 'Black', this)">
+                            </button>
+
+                            <button class="color-circle color-white"
+                                title="White"
+                                aria-label="White"
+                                onclick="selectColor('Rust C4 Replica', 'White', this)">
+                            </button>
+
+                            <button class="color-circle color-brown"
+                                title="Brown"
+                                aria-label="Brown"
+                                onclick="selectColor('Rust C4 Replica', 'Brown', this)">
+                            </button>
+
+                            <button class="color-circle color-grey"
+                                title="Grey"
+                                aria-label="Grey"
+                                onclick="selectColor('Rust C4 Replica', 'Grey', this)">
+                            </button>
+
+                            <button class="color-circle color-blue"
+                                title="Blue"
+                                aria-label="Blue"
+                                onclick="selectColor('Rust C4 Replica', 'Blue', this)">
+                            </button>
+
+                            <button class="color-circle color-purple"
+                                title="Purple"
+                                aria-label="Purple"
+                                onclick="selectColor('Rust C4 Replica', 'Purple', this)">
+                            </button>
+
+                            <button class="color-circle color-pink"
+                                title="Pink"
+                                aria-label="Pink"
+                                onclick="selectColor('Rust C4 Replica', 'Pink', this)">
+                            </button>
+
+                            <button class="color-circle color-orange"
+                                title="Orange"
+                                aria-label="Orange"
+                                onclick="selectColor('Rust C4 Replica', 'Orange', this)">
+                            </button>
+
+                            <button class="color-circle color-yellow"
+                                title="Yellow"
+                                aria-label="Yellow"
+                                onclick="selectColor('Rust C4 Replica', 'Yellow', this)">
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <button onclick="addToCart('Rust C4 Replica')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+                <!-- LIFE SIZED RUST MP5 -->
+
+                <div class="product-card">
+
+                    <img
+                        src="images/rust-mp5.png"
+                        alt="Life Sized Rust MP5 3D Printed Replica"
+                    >
+
+                    <h2>Life Sized Rust MP5</h2>
+
+                    <p class="price">$199.99</p>
+
+                    <p class="description">
+                        Life-sized Rust MP5.
+                        3D-printed non-functional replica.
+                    </p>
+
+                    <div class="color-section">
+
+                        <p>
+                            <strong>Color:</strong>
+                            <span class="selected-color-name">
+                                Select a color
+                            </span>
+                        </p>
+
+                        <div class="color-options">
+
+                            <button class="color-circle color-black"
+                                title="Black"
+                                aria-label="Black"
+                                onclick="selectColor('Life Sized Rust MP5', 'Black', this)">
+                            </button>
+
+                            <button class="color-circle color-white"
+                                title="White"
+                                aria-label="White"
+                                onclick="selectColor('Life Sized Rust MP5', 'White', this)">
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <button onclick="addToCart('Life Sized Rust MP5')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- CUSTOM RUST SKINS -->
+
+            <div class="custom-skin-message"
+                 style="text-align:center; margin:35px auto; padding:25px;">
+
+                <h2>Custom Rust Skins</h2>
+
+                <p>
+                    Want any rust skin on your purchase?
+                    Email us and request it!
+                </p>
+
+                <p>
+                    <a href="mailto:rustlabsofficial@gmail.com">
+                        rustlabsofficial@gmail.com
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- CS2 SHOP -->
+
+        <section
+            class="game-shop-section"
+            id="cs2-shop"
+            hidden
+        >
+
+            <div class="empty-game-shop">
+
+                <h2>CS2 Products</h2>
+
+                <p>
+                    CS2 products are coming soon!
+                    Check back for new 3D-printed replicas.
+                </p>
+
+            </div>
+
+        </section>
 
     </main>
-
 
     <div class="tiktok-corner">
         TikTok — @rustlabsofficial
     </div>
 
-
     <script src="script.js"></script>
+
+    <script>
+        function showGameCategory(category) {
+
+            const rustShop = document.getElementById("rust-shop");
+            const cs2Shop = document.getElementById("cs2-shop");
+
+            const rustTab = document.getElementById("rust-tab");
+            const cs2Tab = document.getElementById("cs2-tab");
+
+            const showRust = category === "rust";
+
+            rustShop.hidden = !showRust;
+            cs2Shop.hidden = showRust;
+
+            rustTab.classList.toggle("active", showRust);
+            cs2Tab.classList.toggle("active", !showRust);
+
+            rustTab.setAttribute("aria-pressed", String(showRust));
+            cs2Tab.setAttribute("aria-pressed", String(!showRust));
+
+        }
+    </script>
 
 </body>
 
