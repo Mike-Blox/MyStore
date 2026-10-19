@@ -34,20 +34,11 @@ const defaultColors = [
     "Yellow"
 ];
 
-const products = {
 
-    "Rust Semi Automatic Rifle": {
-        price: 24.99,
-        colors: defaultColors
-    },
+const products = {
 
     "Rust Revolver": {
         price: 29.99,
-        colors: defaultColors
-    },
-
-    "Rust C4 Replica": {
-        price: 19.99,
         colors: defaultColors
     },
 
@@ -57,6 +48,7 @@ const products = {
     }
 
 };
+
 
 // =========================
 // DATABASE
